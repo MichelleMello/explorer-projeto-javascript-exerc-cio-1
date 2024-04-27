@@ -1,29 +1,35 @@
-let numberOne = prompt("Enter the first number");
-let numberTwo = prompt("Enter the second number");  
+let students =[
+    {
+        studentName: 'John Doe',
+        studentFirstGrade: 8,
+        studentSecondGrade: 6,
+    },
+    {
+        studentName: 'Jane Doe',
+        studentFirstGrade: 7,
+        studentSecondGrade: 9,
+    },
+    {
+        studentName: 'Alice Doe',
+        studentFirstGrade: 10,
+        studentSecondGrade: 10,
+    }
+]
 
-numberOne = Number(numberOne)
-numberTwo = Number(numberTwo)
-
-let sum = numberOne + numberTwo;
-let difference = numberOne - numberTwo;
-let product = numberOne * numberTwo;
-let quotient = numberOne / numberTwo;
-let remainder = numberOne % numberTwo;
-
-alert('The sum of ' + numberOne + ' and ' + numberTwo + ' is ' + sum)
-alert('The difference of ' + numberOne + ' and ' + numberTwo + ' is ' + difference)
-alert('The product of ' + numberOne + ' and ' + numberTwo + ' is ' + product)   
-alert('The quotient of ' + numberOne + ' and ' + numberTwo + ' is ' + quotient)
-alert('The remainder of ' + numberOne + ' and ' + numberTwo + ' is ' + remainder)
-
-if (sum % 2 == 0) {
-    alert('The sum of ' + numberOne + ' and ' + numberTwo + ' is even')
-} else { 
-    alert('The sum of ' + numberOne + ' and ' + numberTwo + ' is odd')
+function averageStudentGrade(student){
+    let average = (student.studentFirstGrade + student.studentSecondGrade) / 2
+    return average
 }
 
-if (numberOne == numberTwo) {
-    alert('The numbers are equal')
-} else {
-    alert('The numbers are not equal')
+function getStudentAverageGrade(student){
+    let average = averageStudentGrade(student)
+    if (average >= 7){
+        console.log(`The student ${student.studentName} is approved with the average grade of ${average}`)
+    } else {   
+        console.log(`The student ${student.studentName} is reproved with the average grade of ${average}`)
+    }
+}
+
+for (student of students){
+    getStudentAverageGrade(student)
 }
